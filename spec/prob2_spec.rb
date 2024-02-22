@@ -12,13 +12,16 @@ RSpec.describe TodoList do
         it "removes a todo from the list" do
             todolist = TodoList.new
             todolist.add('Todo')
-            expect(todolist.remove('Todo')).to eq('Todo')
+            todolist.remove('Todo')
+            expect(todolist.todos).to eq([])
         end
     end
 
     describe "#todos" do
         it "returns all todos" do
-            expect(TodoList.new.todos).to eq([])
+            todolist = TodoList.new
+            todolist.add('Todo')
+            expect(todolist.todos).to eq(['Todo'])
         end
     end
 end
